@@ -1,0 +1,111 @@
+RESTAURANT ORDERS & MENU PERFORMANCE ANALYSIS
+==========================================================
+Dataset: 22_restaurant_orders_1000_plus.csv (synthetic sample data)
+
+1. DATASET OVERVIEW
+Rows: 1116
+Columns: 12
+Distinct orders: 420
+Distinct customers: 205
+Menu items: 15
+Order types: 3
+
+2. MISSING VALUES & REPEATED ORDER IDs
+Missing values before cleaning:
+Order_ID           0
+Customer_ID        0
+Item               0
+Item_Quantity      8
+Item_Price        10
+Category           0
+Order_Type         0
+Order_DateTime     0
+Rows with repeated Order_ID after first occurrence: 696
+Repeated Order_ID values are expected because an order may contain multiple menu-item rows.
+Quantity is filled using the overall median; price is filled using item-level median, then overall median.
+
+3. BUSINESS TOTALS
+Distinct orders: 420
+Total items sold: 1761.00
+Total revenue: Rs. 229,111.00
+
+4. TOP 10 DISHES BY QUANTITY
+Item
+Burger              145.0
+Margherita Pizza    144.0
+Biryani             136.0
+French Fries        126.0
+Cold Drink          125.0
+Paneer Rice Bowl    123.0
+Lemonade            120.0
+Brownie             117.0
+Garlic Bread        115.0
+Sandwich            112.0
+
+5. CATEGORY REVENUE
+Category
+Fast Food      Rs. 79,878.00
+Main Course    Rs. 74,218.00
+Snacks         Rs. 36,250.00
+Beverages      Rs. 19,995.00
+Desserts       Rs. 18,770.00
+
+6. AVERAGE BILL BY ORDER TYPE
+Order_Type
+Delivery    Rs. 554.56
+Dine-in     Rs. 579.69
+Takeaway    Rs. 499.61
+
+7. PEAK HOUR AND BUSIEST WEEKDAY
+Peak hour: 14:00–14:59 (49 orders)
+Busiest weekday: Friday (80 orders)
+
+8. PYTHON COLLECTIONS AND BILL FUNCTION
+Top dishes list: ['Burger', 'Margherita Pizza', 'Biryani', 'French Fries', 'Cold Drink', 'Paneer Rice Bowl', 'Lemonade', 'Brownie', 'Garlic Bread', 'Sandwich']
+Meal categories tuple: ('Breakfast', 'Lunch', 'Dinner', 'Snacks', 'Beverages')
+Unique customer IDs set size: 205
+Example order bill: Rs. 150.00
+
+9. NUMPY ORDER-BILL STATISTICS
+Mean bill: Rs. 545.50
+Median bill: Rs. 480.50
+Maximum bill: Rs. 1,880.00
+
+10. IQR OUTLIERS
+Q1: Rs. 289.50
+Q3: Rs. 711.00
+IQR: Rs. 421.50
+Lower fence: Rs. -342.75
+Upper fence: Rs. 1,343.25
+Large bills above upper fence: 13
+Order_ID Order_Type  Item_Revenue
+  O00169   Takeaway        1880.0
+  O00264    Dine-in        1755.0
+  O00080    Dine-in        1650.0
+  O00021   Delivery        1639.0
+  O00420   Delivery        1564.0
+  O00252   Takeaway        1558.0
+  O00034    Dine-in        1480.0
+  O00410   Takeaway        1462.0
+  O00095   Delivery        1460.0
+  O00061   Delivery        1440.0
+  O00286    Dine-in        1414.0
+  O00149   Delivery        1408.0
+  O00168   Delivery        1399.0
+
+11. ORDERS BY TIME CATEGORY
+Order_Time_Category
+Afternoon    218
+Evening       95
+Morning       86
+Night         21
+
+12. MENU-PLANNING RECOMMENDATIONS
+1. Keep the highest-quantity dishes adequately stocked and monitor inventory before peak ordering periods.
+2. Review the highest-revenue menu category and test complementary items or bundles using actual sales data.
+3. Align kitchen preparation and staffing with the busiest hour and weekday identified in the dataset.
+4. Compare average bills across dine-in, takeaway and delivery before designing service-mode promotions.
+5. Review unusually large order bills individually; an IQR outlier is a statistical flag, not automatically an error.
+
+LIMITATION
+All records are synthetic sample data created for this assignment. Findings demonstrate the analysis workflow and must not be treated as actual restaurant sales.
